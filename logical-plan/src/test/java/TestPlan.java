@@ -23,8 +23,9 @@ public class TestPlan {
     @Test
     public void test() {
         LogicalPlan plan = new Projection(
-            new Selection(new Scan("employee", new CsvDataSource(csv_path), Collections.emptyList()),
-                new Eq(new Column("3"), new LiteralString("CO"))),
+            new Selection(new Scan(new CsvDataSource(csv_path, ""), Collections.emptyList()),
+                new Eq(new Column("3"), new LiteralString("CO"))
+            ),
             Arrays.asList(new Column("id"), new Column("first_name"), new Column("last_name"), new Column("state"),
                 new Column("salary")));
 

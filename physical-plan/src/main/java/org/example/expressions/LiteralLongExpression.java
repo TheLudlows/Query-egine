@@ -16,4 +16,8 @@ public class LiteralLongExpression implements Expression {
     public ColumnVector evaluate(RecordBatch input) {
         return new LiteralValueVector(ArrowTypes.Int64Type, value, input.rowCount());
     }
+    @Override
+    public String toString() {
+        return String.valueOf(value);
+    }
 }

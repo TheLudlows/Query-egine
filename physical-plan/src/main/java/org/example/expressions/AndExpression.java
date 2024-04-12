@@ -13,4 +13,9 @@ public class AndExpression extends BooleanExpression {
     protected boolean evaluate(Object l, Object r, ArrowType arrowType) {
         return toBool(l) && toBool(r);
     }
+
+    @Override
+    public String toString() {
+        return "AndExpression: " + l + " and " + r;
+    }
 }

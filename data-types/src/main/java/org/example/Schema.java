@@ -32,8 +32,8 @@ public class Schema {
         return -1;
     }
     public Schema select(List<String> indices) {
-        if(indices == null)
-            return null;
+        if(indices == null || indices.isEmpty())
+            return this;
         Map<String, Field> fieldMap = this.fields.stream().collect(Collectors.toMap(Field::name, e->e));
 
         return new Schema(indices.stream().map(fieldMap::get).collect(Collectors.toList()));
@@ -45,7 +45,7 @@ public class Schema {
 
     @Override
     public String toString() {
-        return "Schema{" + "fields=" + fields + '}';
+        return "Schema: " + fields;
     }
 
     public List<Field> fields() {

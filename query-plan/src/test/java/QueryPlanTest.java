@@ -31,7 +31,7 @@ public class QueryPlanTest {
             new Field("name", ArrowTypes.StringType)));
         List<RecordBatch> batchList = Collections.emptyList();
 
-        DataFrame frame = new DataFrameImpl(new Scan("", new InMemeryDataSource(schema, batchList), Collections.emptyList()));
+        DataFrame frame = new DataFrameImpl(new Scan( new InMemeryDataSource("", schema, batchList), Collections.emptyList()));
 
         LogicalPlan plan = frame.project(asList(new ColumnIndex(0))).filter(new GtEq(new ColumnIndex(0), new LiteralLong(10)))
             .logicalPlan();

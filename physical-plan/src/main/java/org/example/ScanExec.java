@@ -30,6 +30,6 @@ public class ScanExec implements PhysicalPlan {
 
     @Override
     public String toString() {
-        return "ScanExec: schema=" + schema() + ", projection=" + projection;
+        return "ScanExec: DataSource " + this.ds.sourceName() + ", schema=" + schema() + ", projection=" + projection;
     }
 }

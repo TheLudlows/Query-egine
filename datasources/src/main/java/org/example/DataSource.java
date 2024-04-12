@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface DataSource {
 
+    String sourceName();
     Schema schema();
 
     Iterable<RecordBatch> scan(List<String> projection);

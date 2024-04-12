@@ -13,8 +13,8 @@ import org.example.FieldVectorFactory;
 import org.example.RecordBatch;
 
 public abstract class BooleanExpression implements Expression {
-    private final Expression l;
-    private final Expression r;
+    protected final Expression l;
+    protected final Expression r;
 
     public BooleanExpression(Expression l, Expression r) {
         this.l = l;

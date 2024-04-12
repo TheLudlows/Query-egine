@@ -27,6 +27,7 @@ import java.util.stream.Stream;
 public class CsvDataSource implements DataSource {
     static Logger logger = Logger.getLogger(CsvDataSource.class.getSimpleName());
 
+    String sourceName;
     String filename;
 
     Schema schema;
@@ -36,11 +37,17 @@ public class CsvDataSource implements DataSource {
     int batchSize;
 
     @Override
+    public String sourceName() {
+        return sourceName;
+    }
+
+    @Override
     public Schema schema() {
         return schema;
     }
 
-    public CsvDataSource(int batchSize,  boolean hasHeader,  String filename, Schema schema) {
+    public CsvDataSource(String sourceName, int batchSize, boolean hasHeader, String filename, Schema schema) {
+        this.sourceName = sourceName;
         this.filename = filename;
         this.hasHeader = hasHeader;
         this.batchSize = batchSize;
@@ -49,7 +56,8 @@ public class CsvDataSource implements DataSource {
         }
     }
 
-    public CsvDataSource(String filename) {
+    public CsvDataSource(String filename, String sourceName) {
+        this.sourceName = sourceName;
         this.filename = filename;
         this.hasHeader = true;
         this.batchSize = 10;

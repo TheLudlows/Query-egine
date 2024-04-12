@@ -19,6 +19,7 @@ import java.util.stream.Collectors;
 
 public class ParquetDataSource implements DataSource {
 
+    String sourceName;
     Schema schema;
 
     int batchSize;
@@ -31,10 +32,16 @@ public class ParquetDataSource implements DataSource {
         initSchema();
     }
 
-    public ParquetDataSource(String fileName) {
+    public ParquetDataSource(String fileName, String sourceName) {
+        this.sourceName = sourceName;
         this.batchSize = 10;
         this.fileName = fileName;
         initSchema();
+    }
+
+    @Override
+    public String sourceName() {
+        return sourceName;
     }
 
     @Override

@@ -43,6 +43,6 @@ public class Field {
 
     @Override
     public String toString() {
-        return "Field{" + "name=" + name  + ", dataType=" + dataType + '}';
+        return name +  ":"  + dataType;
     }
 }

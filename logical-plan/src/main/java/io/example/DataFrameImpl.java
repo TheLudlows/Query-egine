@@ -4,6 +4,8 @@ import io.example.expr.AggregateExpr;
 
 import org.example.Schema;
 
+import java.util.List;
+
 public class DataFrameImpl implements DataFrame {
 
     private final LogicalPlan plan;
@@ -13,7 +15,7 @@ public class DataFrameImpl implements DataFrame {
     }
 
     @Override
-    public DataFrame project(java.util.List<LogicalExpr> expr) {
+    public DataFrame project(List<LogicalExpr> expr) {
         return new DataFrameImpl(new Projection(plan, expr));
     }
 
@@ -24,7 +26,7 @@ public class DataFrameImpl implements DataFrame {
 
     @Override
     public DataFrame aggregate(
-        java.util.List<LogicalExpr> groupBy, java.util.List<AggregateExpr> aggregateExpr) {
+            List<LogicalExpr> groupBy, List<AggregateExpr> aggregateExpr) {
         return new DataFrameImpl(new Aggregate(plan, groupBy, aggregateExpr));
     }
 

@@ -8,7 +8,6 @@ import java.util.List;
 
 public class Scan implements LogicalPlan {
 
-    String sourceName;
 
     private DataSource dataSource;
     private List<String> projection;
@@ -27,7 +26,7 @@ public class Scan implements LogicalPlan {
         return schema;
     }
 
-    public Scan(String sourceName, DataSource dataSource, List<String> projection) {
+    public Scan(DataSource dataSource, List<String> projection) {
         this.dataSource = dataSource;
         this.projection = projection;
         this.schema = deriveSchema();

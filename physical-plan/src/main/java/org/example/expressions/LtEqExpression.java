@@ -36,4 +36,9 @@ public class LtEqExpression extends BooleanExpression {
             throw new IllegalStateException("Unsupported data type in comparison expression: " + arrowType);
         }
     }
+
+    @Override
+    public String toString() {
+        return "AndExpression: " + l + " <= " + r;
+    }
 }
